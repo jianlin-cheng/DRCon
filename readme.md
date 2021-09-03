@@ -11,6 +11,16 @@
 **(4) trRosetta Features**
 
 
+
+#DATA
+```
+(1) Labels : http://sysbio.rnet.missouri.edu/bml_data/protein_complex_interaction/DeepComplexProject/HOMO_STD_DATA/Y-Labels/
+
+(2) Atom :  http://sysbio.rnet.missouri.edu/bml_data/protein_complex_interaction/DeepComplexProject/HOMO_STD_DATA/homo_std_reindexed_atom.zip
+
+(3) Fasta : http://sysbio.rnet.missouri.edu/bml_data/protein_complex_interaction/DeepComplexProject/HOMO_STD_DATA/fastas/
+```
+
 # Details for features generation
 
 **(1) To Generate the Dncon2 Features follow guideline from here:  https://github.com/jianlin-cheng/DeepComplex**
