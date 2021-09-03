@@ -31,14 +31,14 @@ After seting them up and generating the features and use the "feat" file inside 
 e.g feat-11AS.txt or feat-<target_id>.txt
 
 **(2) For extracting the true intrachain you may use the script inside "intrachain_from_pdb" or generate them using some tools and use batch_rr_2_cmap.py to convert it to cmaps**
+
 Convert pdb to intrachain distance
 ```
-python pdb2Distancemonomer.py ./4FBL.pdb ./4FBL.fasta ./features
+python intrachain_extractor.py ./example/3GWRA.atom ./example/3GWRA.fasta ~/
+
 ```
-then place all the rr in a directory and choose a directory to place the cmaps
-```
-python batch_rr_2_cmap  ./input_dir/ ./ouput_dir/
-```
+
+
 
 **(3) FOR 8 state secondary features  use SCRATCH-1D_1.1:**
 Generate them using scratch and use the script "SS8_onehot.py" to get the one-hot encoded feature files
