@@ -1,25 +1,28 @@
+# DRCon
+Deep dilated convolutional residual neural network for predicting interchain contacts of protein homodimers
 
 
-# The DRCon, homodimer interchain predictor requires 4 Features, as follows:
+# First Time Setup
+**(1) Install the DNCON2 follwoing this github repository (https://github.com/multicom-toolbox/DNCON2)**
 
-**(1) DNCON2 Features**
+**(2) Install trRosetta following this github repository (https://github.com/gjoni/trRosetta)**
+      
+- Once installing is done :  Copy the file /DRCon/features/trRosetta_features_generator/predict_2.py into the directory "/trRosetta/network/" of the trRosetta 
+ 
+ 
+ # Running DRCon
+
+The DRCon, homodimer interchain predictor requires 4 Features, as follows:
+
+**(1) DNCON2 Features which is installed in step 1 of first time setup**
 
 **(2) Intrachain contact maps**
 
-**(3) 8-state secondary structures by SCRATCH**
+**(3) 8-state secondary structures by SCRATCH which is installed in step 1 of first time setup**
 
-**(4) trRosetta Features**
+**(4) trRosetta Features which is installed in step 2 of first time setup**
 
 
-
-#DATA
-```
-(1) Labels : http://sysbio.rnet.missouri.edu/bml_data/protein_complex_interaction/DeepComplexProject/HOMO_STD_DATA/Y-Labels/
-
-(2) Atom :  http://sysbio.rnet.missouri.edu/bml_data/protein_complex_interaction/DeepComplexProject/HOMO_STD_DATA/homo_std_reindexed_atom.zip
-
-(3) Fasta : http://sysbio.rnet.missouri.edu/bml_data/protein_complex_interaction/DeepComplexProject/HOMO_STD_DATA/fastas/
-```
 
 # Details for features generation
 
@@ -83,3 +86,15 @@ torchvision               0.8.2           cuda10.2_py38_0
 
 torchvision-base          0.8.2           cuda10.2_py38_6
 
+
+
+
+
+#DATA Avaiability
+```
+(1) Labels : http://sysbio.rnet.missouri.edu/bml_data/protein_complex_interaction/DeepComplexProject/HOMO_STD_DATA/Y-Labels/
+
+(2) Atom :  http://sysbio.rnet.missouri.edu/bml_data/protein_complex_interaction/DeepComplexProject/HOMO_STD_DATA/homo_std_reindexed_atom.zip
+
+(3) Fasta : http://sysbio.rnet.missouri.edu/bml_data/protein_complex_interaction/DeepComplexProject/HOMO_STD_DATA/fastas/
+```
