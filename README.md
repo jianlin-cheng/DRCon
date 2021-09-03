@@ -3,10 +3,11 @@ Deep dilated convolutional residual neural network for predicting interchain con
 
 
 # First Time Setup
-**(1) Install the DNCON2 follwoing this github repository (https://github.com/multicom-toolbox/DNCON2)**
+**(1) Install the DNCON2 following the instruction in this github repository (https://github.com/multicom-toolbox/DNCON2)**
 
 
-**(2) Install trRosetta following this github repository (https://github.com/gjoni/trRosetta)**
+
+**(2) Install trRosetta  following the instruction in this github repository (https://github.com/gjoni/trRosetta)**
       
 - Once installing is done :  Copy the file /DRCon/features/trRosetta_features_generator/predict_2.py into the directory "/trRosetta/network/" of the trRosetta 
  
@@ -17,9 +18,12 @@ The DRCon, homodimer interchain predictor requires 4 features to predict the int
 
 **(1) DNCON2 Features: This is the output of running DNCON2 (Step 1 of first time setup)**
 
+
 **(2) Intrachain contact maps: This can be generated from pdb or someother software can used to generate the contact maps**
 
+
 **(3) 8-state secondary structures features by SCRATCH: This will be generated during dncon2 features generation**
+
 
 **(4) trRosetta Features:This feature require alignment in a3m file and a3m file is also generated during dncon2 feature generation similarly a3m file from somether sources can be used**
 
@@ -29,10 +33,14 @@ The DRCon, homodimer interchain predictor requires 4 features to predict the int
 
 **(1) To Generate the Dncon2 Features follow guideline from here:  https://github.com/jianlin-cheng/DeepComplex**
 
-After seting them up and generating the features and use the "feat" file inside it.
+After seting them up and generate the features and use the "feat" file inside the feature directory.
+
+
 e.g feat-11AS.txt or feat-<target_id>.txt
 
-**(2) For extracting the intrachain you may use the script inside "intrachain_from_pdb" or generate them using some tools and convert it to cmaps**
+
+
+**(2) For extracting the intrachain contact map from the pdb: you may use the script inside "intrachain_from_pdb" or generate them using some tools and convert it into contact maps**
 
 Convert pdb to intrachain distance
 
@@ -62,8 +70,9 @@ e.g python ss8_onehot.py ./4FBL.ss8 ./
 
 Use this link for setting it up : https://github.com/gjoni/trRosetta
 
-To generate the trRosetta features you will need alignment file in a3m format, you may generate them sepeartly or use the file inside the alignment file of the DNCON2 features.
+To generate the trRosetta features you will need alignment file in a3m format, you may generate them separately or use the file inside the alignment file of the DNCON2 features.
 Inside the DNCON2 aligment file there is a file called result.txt, which contains name of the final alignment file in aln format. Use the corresponding "a3m" file  of the final ".aln"
+
 ```
 e.g of the text inside results.txt file
 "cp jhm-1e-10.aln T1087o.aln"
@@ -105,11 +114,3 @@ torchvision-base          0.8.2
 
 
 
-#DATA Avaiability
-```
-(1) Labels : http://sysbio.rnet.missouri.edu/bml_data/protein_complex_interaction/DeepComplexProject/HOMO_STD_DATA/Y-Labels/
-
-(2) Atom :  http://sysbio.rnet.missouri.edu/bml_data/protein_complex_interaction/DeepComplexProject/HOMO_STD_DATA/homo_std_reindexed_atom.zip
-
-(3) Fasta : http://sysbio.rnet.missouri.edu/bml_data/protein_complex_interaction/DeepComplexProject/HOMO_STD_DATA/fastas/
-```
