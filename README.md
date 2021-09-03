@@ -12,6 +12,23 @@ Deep dilated convolutional residual neural network for predicting interchain con
 - Once installing is done :  Copy the file /DRCon/features/trRosetta_features_generator/predict_2.py into the directory "/trRosetta/network/" of the trRosetta 
  
  
+ 
+# TESTED ON THE FOLLOWING LIBRARY PACKAGE (Recommended)
+python                    3.8.8               
+
+pytorch                   1.7.1            
+
+pytorch-base              1.7.1          
+
+torchtext                 0.8.1            
+
+torchvision               0.8.2        
+
+torchvision-base          0.8.2          
+
+
+ 
+ 
  # Running DRCon
 
 The DRCon, homodimer interchain predictor requires 4 features to predict the interchain contacts, they are as follows:
@@ -95,20 +112,6 @@ python DRCON_pred.py /gpfs/alpine/proj-shared/bif132/raj/codes/pytroch_codes/upd
 ```
 
 
-
-
-# TESTED ON THE FOLLOWING LIBRARY PACKAGE
-python                    3.8.8               
-
-pytorch                   1.7.1            
-
-pytorch-base              1.7.1          
-
-torchtext                 0.8.1            
-
-torchvision               0.8.2        
-
-torchvision-base          0.8.2          
 
 
 
