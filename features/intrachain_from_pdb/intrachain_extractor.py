@@ -139,12 +139,12 @@ def read_fastaonly(_input):
 
     return fasta
 
-# pdbfilename=sys.argv[1]
-# fasta= read_fastaonly(sys.argv[2]).strip()
-# outfile=sys.argv[3]
-pdbfilename=  "/home/rajroy/dncon2_env/T0893A.pdb"
-fasta=read_fastaonly("/home/rajroy/dncon2_env/T0893.fasta").strip()
-outfile="/home/rajroy/"
+pdbfilename=sys.argv[1]
+fasta= read_fastaonly(sys.argv[2]).strip()
+outfile=sys.argv[3]
+# pdbfilename=  "/home/rajroy/dncon2_env/T0893A.pdb"
+# fasta=read_fastaonly("/home/rajroy/dncon2_env/T0893.fasta").strip()
+# outfile="/home/rajroy/"
 
 dist=8
 chain_dict=readPDB(pdbfilename)
@@ -164,7 +164,7 @@ distmap=createDistanceMap(getCB(split_contents_A),getCB(split_contents_B))
 
 distribution,rr_distribution=createDistDistribution(distmap,float(dist))
 
-outfile_dist=outfile+"_"+chain_1+chain_2+".txt"
+outfile_dist=outfile+os.path.basename(pdbfilename).split(".")[0]+"_bb"+".txt"
 print(outfile)
 outfile_rr=outfile+"_"+chain_1+chain_2+".rr"
 distribution.insert(0,fasta+"\n")
