@@ -33,11 +33,20 @@ e.g feat-11AS.txt or feat-<target_id>.txt
 **(2) For extracting the true intrachain you may use the script inside "intrachain_from_pdb" or generate them using some tools and use batch_rr_2_cmap.py to convert it to cmaps**
 
 Convert pdb to intrachain distance
+
 ```
+python intrachain_extractor.py <input_atom/pdb file > <fasta of the input file> <output file >
+
 python intrachain_extractor.py ./example/3GWRA.atom ./example/3GWRA.fasta ~/
 
 ```
+Alternatively dirtect intrachain contact map from any other software can also used but applying a cutoff (e.g. 0.5 ) may increase the performance 
 
+```
+python intrachain_extractor.py <input cmap file> <cut off value (0 to 1.0) >  <output file>
+python intrachain_extractor.py /cutoff_cmap.py ~/137L.intra_cmap 0.5 ~/
+
+```
 
 
 **(3) FOR 8 state secondary features  use SCRATCH-1D_1.1:**
