@@ -1,7 +1,12 @@
 # DRCon
 Deep dilated convolutional residual neural network for predicting interchain contacts of protein homodimers
 
-
+<p align="center">
+  <img width="80%" height="60%" src="example/1DR0.gif">
+</p>
+<!-- 
+![1DR0](example/1DR0.gif)
+ -->
 # First Time Setup
 **(1) Install the DNCON2 following the instructions in this github repository (https://github.com/multicom-toolbox/DNCON2)**
 
