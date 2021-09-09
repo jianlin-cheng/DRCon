@@ -38,7 +38,7 @@ torchvision-base          0.8.2
  
  # Running DRCon
 
-The DRCon, homodimer interchain predictor requires 4 features to predict the interchain contacts, they are as follows:
+The DRCon, homodimer interchain predictor requires 4 kinds of features to predict the interchain contacts, they are as follows:
 
 **(1) DNCON2 Features: This is the output of running DNCON2 (requires Step 1 of first time setup)**
 
