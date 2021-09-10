@@ -23,7 +23,6 @@ import sys
 # READ ALL THESE FROM A FILE
 import resnet_model
 import torch.optim as optim
-
 model_path = sys.argv[1]
 output_path = os.path.abspath(sys.argv[2])
 NAMEOFFILE = sys.argv[3]
@@ -43,7 +42,6 @@ MAX_LENGTH = 600
 EPOCH = 100
 FEATURES = 592
 RESNET_DEPTH = 36
-# err_list = ['3QS2', '2HCK', '3NYO', '3NX3']
 REJECT_LIST = ["# AA composition",
                "# intra",
                "# PSSM",
@@ -65,7 +63,7 @@ REJECT_LIST = ["# AA composition",
 
 BATCH_SIZE = 1
 
-
+torch.manual_seed(1234)
 def load_ss_features_only(_feature_file):
     L = 0
     with open(_feature_file) as f:
@@ -200,7 +198,6 @@ def check_path_exists(_dncon_file_name,
     print(_tr_ros_file_name)
     print(_intra_path_file_name)
     print(_ss_path_file_name)
-   
 
     if check_single_exists(_intra_path_file_name) and check_single_exists(_tr_ros_file_name) and check_single_exists(
             _intra_path_file_name) and check_single_exists(_ss_path_file_name):
@@ -214,14 +211,13 @@ def filter_files(_feat_path, tr_ros_path, ss_path, intra_path):
     _intra_path = []
     _tr_ros = []
     _ss = []
- 
 
     dncon_file_name = _feat_path
     tr_ros_file_name = tr_ros_path
     intra_path_file_name = intra_path
     ss_path_file_name = ss_path
 
-    if os.path.exists(cmap_dir  ):
+    if os.path.exists(cmap_dir):
         print("It is already peresent, so skipping . . . . ")
         exit()
 
@@ -240,19 +236,11 @@ def fix_pred_map(_input):
     out = np.zeros((len, len))
     for i in range(len):
         for j in range(len):
-            temp  = float((_input[i][j] + _input[j][i])) / 2
-            out[i][j] =temp
-            out[j][i] =temp
+            temp = float((_input[i][j] + _input[j][i])) / 2
+            out[i][j] = temp
+            out[j][i] = temp
     return out
 
-
-def text_file_reader(_file):
-    file = open(_file, "r")
-    output_array = []
-    if file.mode == 'r':
-        output_array = file.read().splitlines()
-    file.close()
-    return output_array
 
 
 class my_dataset(data.Dataset):
@@ -329,7 +317,6 @@ def getY(true_file):
 
     for values in input_array:
         inter_array.append(values.strip().split(' '))
-    L = len(inter_array)
     relax_0_array = np.asfarray(inter_array, float)
 
     return relax_0_array
@@ -337,9 +324,6 @@ def getY(true_file):
 
 len_prot = 600
 model = resnet_model.ResNet_custom(img_channel=FEATURES, num_classes=len_prot * len_prot, _depth=RESNET_DEPTH)
-print("VALIDATIOn AREA ")
-# len_prot = data['sequence_length']
-# model = rough_copy.ResNet_custom(img_channel=FEATURES, num_classes=len_prot * len_prot, _depth=RESNET_DEPTH)
 
 model.cuda()
 last_weight = model_path
@@ -355,9 +339,7 @@ with torch.no_grad():
         output_final = torch.squeeze(output_val, -1).detach().cpu().clone().numpy().squeeze()
         mini_batch_size = BATCH_SIZE
         shape_label_array = real_sequence_length.detach().cpu().clone().numpy().squeeze()
-        
-        print(output_final.shape)
-        if os.path.exists(cmap_dir  ):
+        if os.path.exists(cmap_dir):
             continue
         shape_label = shape_label_array
         padded_predicted_label = output_final
@@ -368,7 +350,6 @@ with torch.no_grad():
                 unpadded_predicted_label[val] = padded_predicted_label[val][0:shape_label]
         else:
             unpadded_predicted_label = output_final
-        print(cmap_dir)
-        unpadded_true_label = fix_pred_map(unpadded_predicted_label)
-        np.savetxt(cmap_dir , unpadded_predicted_label)
-
+        print("output name" + str(cmap_dir))
+        unpadded_pred_label = fix_pred_map(unpadded_predicted_label)
+        np.savetxt(cmap_dir, unpadded_pred_label)
