@@ -60,7 +60,7 @@ The DRCon, homodimer interchain predictor requires 4 kinds of features to predic
 In brief, run the "dncon2-v1.0.sh" script in the DNCON2 repo and that will generate the DNCON2 features. Use the "feat" file inside the feature directory.
 
 
-e.g feat-11AS.txt or feat-<target_id>.txt
+e.g feat-3GWR.txt or feat-<target_id>.txt
 
 
 
@@ -71,7 +71,7 @@ To extract intrachain contact map from pdb, use the script "intrachain_extractor
 ```
 python intrachain_extractor.py <input_atom/pdb file > <fasta of the input file> <output file >
 
-python intrachain_extractor.py ./example/3GWRA.atom ./example/3GWRA.fasta ~/
+python intrachain_extractor.py ./example/3GWR/3GWR.atom ./example/3GWR/3GWR.fasta ~/
 
 ```
 [Alternatively] Directly, intrachain contact map can be obtained from any other software and can also be used. Applying a cutoff (e.g. 0.5 ) may increase the performance 
@@ -88,7 +88,7 @@ python intrachain_extractor.py /cutoff_cmap.py ~/137L.intra_cmap 0.5 ~/
 8-state secondary structure feature are generated during making of the DNCON2 features, it is located inside the "ss_sa" directory of the DNCON2_features file. Use the script "SS8_onehot.py"  inside "/features/ss8_generator/" to get the one-hot encoded feature files 
 ```
 Usage : python ss8_onehot.py <input_file_name> <output_dir>
-e.g python ss8_onehot.py ./4FBL.ss8 ./
+e.g python ss8_onehot.py ./3GWR.ss8 ./
 ```
 
 **(4) For trRosetta Features**
@@ -100,7 +100,7 @@ Inside the DNCON2 alignment file there is a file called result.txt, which contai
 
 ```
 e.g of the text inside results.txt file
-"cp jhm-1e-10.aln T1087o.aln"
+"cp jhm-1e-10.aln 3GWR.aln"
 Therefore use the jhm-1e-10.a3m for trRosetta features
 ```
 
@@ -109,7 +109,7 @@ Copy the predict_2.py from the "trRosetta_features_generator" into the directory
 ```
 Usage : python predict_2.py -m <tr_rosetta weight file > <input a3m file > <output directory>
 
-Usage : python predict_2.py -m ./model2019_07 ./example/T1001.a3m ./example/
+Usage : python predict_2.py -m ./model2019_07 ./example/3GWR/3GWR.a3m ./example/
 ```
 
 # Finally, run the predictor.
