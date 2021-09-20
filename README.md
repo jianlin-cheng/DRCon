@@ -95,7 +95,8 @@ e.g python ss8_onehot.py ./3GWR.ss8 ./
 
 Use this link to setup the trrRosetta : https://github.com/gjoni/trRosetta
 
-To generate the trRosetta features you will need alignment file in a3m format. It may be generated separately or the alignment file of the DNCON2 features can be used that has been generated during DNCON2 features generation.
+To generate the trRosetta features you will need alignment file in a3m format. It may be generated separately using tools like DeepMsa(https://zhanggroup.org/DeepMSA/) or the alignment file of the DNCON2 features can be used that has been generated during DNCON2 features generation. Better MSA quality will result to a better prediction. 
+
 Inside the DNCON2 alignment file there is a file called result.txt, which contains name of the final alignment file in aln format. Use the corresponding "a3m" file  of the final ".aln"
 
 ```
